@@ -66,9 +66,6 @@ export default function Recomendador() {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Erro ao obter recomendação");
-      }
 
       const data = await response.json();
 
