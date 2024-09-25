@@ -52,7 +52,7 @@ export default function Recomendador() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://luizfornari080303.app.n8n.cloud/webhook-test/HardwarIA_API",
+        "https://luizfornari080303.app.n8n.cloud/webhook/HardwarIA_API",
         {
           method: "POST",
           mode: "cors",
@@ -65,6 +65,10 @@ export default function Recomendador() {
           }),
         }
       );
+
+      if (!response.ok) {
+        throw new Error("Erro ao obter recomendação");
+      }
 
       const data = await response.json();
 
