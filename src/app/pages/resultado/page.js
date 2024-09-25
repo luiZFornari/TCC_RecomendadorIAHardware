@@ -75,7 +75,7 @@ export default function Resultado() {
                   Custo Final
                 </dt>
                 <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
-                  R$ {resultado.custo_final.toFixed(2)}
+                  R$ {resultado.custo_final}
                 </dd>
               </div>
               <div className="bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -83,7 +83,7 @@ export default function Resultado() {
                   Pontuação Final
                 </dt>
                 <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
-                  {resultado.pontuacao_final.toFixed(2)}
+                  {resultado.pontuacao_final}
                 </dd>
               </div>
               {Object.entries(resultado.melhor_configuracao).map(

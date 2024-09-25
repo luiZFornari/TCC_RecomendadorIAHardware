@@ -66,10 +66,6 @@ export default function Recomendador() {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Erro ao obter recomendação");
-      }
-
       const data = await response.json();
 
       const historico = JSON.parse(
@@ -85,7 +81,7 @@ export default function Recomendador() {
       localStorage.setItem("historicoConfiguracoes", JSON.stringify(historico));
       localStorage.setItem("apiResponse", JSON.stringify([data]));
 
-      router.push("/resultado");
+      router.push("/pages/resultado");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
       alert(
