@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.game-slider .slick-prev,
+.game-slider .slick-next {
+  z-index: 10;
+  width: 30px;
+  height: 30px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.game-slider .slick-prev {
+  left: -35px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.game-slider .slick-next {
+  right: -35px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.game-slider .slick-prev:before,
+.game-slider .slick-next:before {
+  font-size: 30px;
+  color: #6366f1;
+}
+
+.game-slider .slick-dots li button:before {
+  color: #6366f1;
+}
+
+.game-slider .slick-dots li.slick-active button:before {
+  color: #818cf8;
 }
