@@ -59,14 +59,14 @@ export default function Historico() {
                         </p>
                         <div className="ml-2 flex-shrink-0 flex">
                           <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            R$ {config.custo}
+                            R$ {config.budjet}
                           </p>
                         </div>
                       </div>
                       <div className="mt-2 sm:flex sm:justify-between">
                         <div className="sm:flex">
                           <p className="flex items-center text-sm text-gray-300">
-                            Orçamento: R$ {config.custo}
+                            Orçamento: R$ {config.budjet}
                           </p>
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-300 sm:mt-0">
