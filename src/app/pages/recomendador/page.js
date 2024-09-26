@@ -85,8 +85,6 @@ export default function Recomendador() {
       localStorage.setItem("historicoConfiguracoes", JSON.stringify(historico));
       localStorage.setItem("apiResponse", JSON.stringify([data]));
       console.log(data);
-
-      router.push("/pages/resultado");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
       alert(
