@@ -12,7 +12,8 @@ export default function Resultado() {
   useEffect(() => {
     const storedResponse = localStorage.getItem("apiResponse");
     if (storedResponse) {
-      setResultado(JSON.parse(storedResponse)[0]);
+      const data = JSON.parse(storedResponse)[0];
+      setResultado(data.melhor_configuracao); // Apenas configuracao
     } else {
       router.push("/");
     }
@@ -44,7 +45,7 @@ export default function Resultado() {
       navigator.share({
         title: "Minha Configuração de PC",
         text: `Confira minha configuração de PC recomendada: ${JSON.stringify(
-          resultado.melhor_configuracao
+          resultado
         )}`,
         url: window.location.href,
       });
@@ -75,7 +76,8 @@ export default function Resultado() {
                   Custo Final
                 </dt>
                 <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
-                  R$ {resultado.custo_final}
+                  R$ {resultado.custo_final}{" "}
+                  {/* Certifique-se de que 'custo_final' é acessível aqui */}
                 </dd>
               </div>
               <div className="bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -83,27 +85,26 @@ export default function Resultado() {
                   Pontuação Final
                 </dt>
                 <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
-                  {resultado.pontuacao_final}
+                  {resultado.pontuacao_final}{" "}
+                  {/* Certifique-se de que 'pontuacao_final' é acessível aqui */}
                 </dd>
               </div>
-              {Object.entries(resultado.melhor_configuracao).map(
-                ([key, value], index) => (
-                  <div
-                    key={key}
-                    className={`${
-                      index % 2 === 0 ? "bg-gray-750" : "bg-gray-800"
-                    } px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}
-                  >
-                    <dt className="text-sm font-medium text-gray-400">
-                      {key.replace("_", " ").charAt(0).toUpperCase() +
-                        key.slice(1)}
-                    </dt>
-                    <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
-                      {value}
-                    </dd>
-                  </div>
-                )
-              )}
+              {Object.entries(resultado).map(([key, value], index) => (
+                <div
+                  key={key}
+                  className={`${
+                    index % 2 === 0 ? "bg-gray-750" : "bg-gray-800"
+                  } px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}
+                >
+                  <dt className="text-sm font-medium text-gray-400">
+                    {key.replace("_", " ").charAt(0).toUpperCase() +
+                      key.slice(1)}
+                  </dt>
+                  <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
+                    {value}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
           <div className="px-4 py-5 sm:px-6">
@@ -111,7 +112,8 @@ export default function Resultado() {
               Desempenho Esperado
             </h3>
             <p className="mt-1 text-sm text-gray-300 whitespace-pre-line">
-              {resultado.output}
+              {resultado.output}{" "}
+              {/* Certifique-se de que 'output' é acessível aqui */}
             </p>
           </div>
           <div className="px-4 py-5 sm:px-6 flex justify-end space-x-4">
